@@ -1,6 +1,7 @@
-streamlit
-streamlit_option_menu
+bertopic==0.15.0
+mysqlclient==2.1.1
 pathlib
-wordcloud
-bertopic
-sqlalchemy
+SQLAlchemy==1.4.0
+streamlit==1.23.1
+streamlit-option-menu==0.3.6
+wordcloud==1.9.2
