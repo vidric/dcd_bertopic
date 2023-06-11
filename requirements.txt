@@ -4,4 +4,3 @@ pathlib
 wordcloud
 bertopic
 sqlalchemy
-mysqlclient
