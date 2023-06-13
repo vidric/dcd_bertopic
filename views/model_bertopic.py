@@ -12,7 +12,9 @@ class ModelBertopic:
             
             with col1:
                 st.write("#### Tanpa Topic Reduction")
-                topic_model_before = BERTopic.load("model/model_bertopic_hmns_before_reduce")
+                #topic_model_before = BERTopic.load("model/model_bertopic_hmns_before_reduce")
+                topic_model_before = BERTopic.load("vidric/bertopic_dcd")
+
                 
                 # Visualize Topics
                 fig = topic_model_before.visualize_topics()
@@ -22,7 +24,8 @@ class ModelBertopic:
             
             with col2:
                 st.write("#### Setelah Topic Reduction")
-                topic_model_after = BERTopic.load("model/model_bertopic_hmns_reduce_topic_auto_final")
+                #topic_model_after = BERTopic.load("model/model_bertopic_hmns_reduce_topic_auto_final")
+                topic_model_after = BERTopic.load("vidric/bertopic_dcd_auto_final")
 
                 # Visualize Topics
                 fig = topic_model_after.visualize_topics()
@@ -31,5 +34,3 @@ class ModelBertopic:
                 st.plotly_chart(fig)
           
             st.markdown("---")
-        
-       
