@@ -4,5 +4,6 @@ pathlib
 SQLAlchemy==1.4.0
 streamlit==1.23.1
 streamlit-option-menu==0.3.6
+streamlit-echarts==0.4.0
 wordcloud==1.9.2
 safetensors==0.3.1
