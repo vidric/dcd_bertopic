@@ -5,6 +5,8 @@ import json
 
 from views.dashboard import Dashboard
 from views.model_bertopic import ModelBertopic
+from views.explore import Explore
+from views.produk import Produk
 
 # Initialize connection.
 #conn = st.experimental_connection("mysql", type='sql')
@@ -22,25 +24,21 @@ class Model:
     menuTitle = "Customer Review Dashboard"
     option1 = "Home"
     option2 = "Model BERTopic"
-    option3 = "Model Training"
-    option4 = "Model Tuning"
-    option5 = "Data Produk"
-    option6 = "Data Review"
+    option3 = "Explore Data"
+    option4 = "Data Produk"
 
     menuIcon = "menu-up"
     icon1 = "speedometer"
     icon2 = "activity"
     icon3 = "motherboard"
-    icon4 = "graph-up-arrow"
-    icon5 = "journal-arrow-down"
-    icon6 = "clipboard-data"
+    icon4 = "journal-arrow-down"
 
 
 def view(model):
     with st.sidebar:
         menuItem = option_menu(model.menuTitle,
-                               [model.option1, model.option2, model.option5, model.option6],
-                               icons=[model.icon1, model.icon2, model.icon5, model.icon6],
+                               [model.option1, model.option2, model.option3, model.option4],
+                               icons=[model.icon1, model.icon2, model.icon3, model.icon4],
                                menu_icon=model.menuIcon,
                                default_index=0,
                                styles={
@@ -57,5 +55,11 @@ def view(model):
 
     if menuItem == model.option2:
         ModelBertopic().view(ModelBertopic.Model())
+    
+    if menuItem == model.option3:
+        Explore().view(Explore.Model())
+    
+    if menuItem == model.option4:
+        Produk().view(Produk.Model())
 
 view(Model())
