@@ -58,7 +58,7 @@ class Dashboard:
                 st.metric(label=model.documentsTitle, value=jumlah_produk)
 
             with col3:
-                df = db.query('SELECT COUNT(id) from kategori_topic')
+                df = db.query('SELECT COUNT(id) from cluster')
                 jumlah_topik = df.iloc[0,0]
                 jumlah_topik = "{:,.0f}".format(jumlah_topik).replace(",", " ").replace(".", ",").replace(" ", ".")
                 st.metric(label=model.dailyInferenceTitle, value=jumlah_topik)
