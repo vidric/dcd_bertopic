@@ -125,14 +125,13 @@ class ModelBertopic:
                 csvwriter.writerow([row[0], row[1], ','.join(map(str, row[2]))])
             """
             st.code(code4, language="python")
-            st.info('Menghasilkan 38 topik. Dan terlihat topik- topik tersebut tercluster dengan baik.')
+            st.info('Menghasilkan 67 topik. Dan terlihat topik- topik tersebut tercluster dengan baik.')
         with st.container():
             col1, col2 = st.columns(2)
             
             with col1:
                 st.write("#### Model BERTopic")
-                #topic_model_before = BERTopic.load("model/model_bertopic_hmns_before_reduce")
-                topic_model_before = BERTopic.load("vidric/bertopic_dcd")
+                topic_model_before = BERTopic.load("vidric/bertopic_before_tuning")
 
                 
                 # Visualize Topics
@@ -143,8 +142,7 @@ class ModelBertopic:
             
             with col2:
                 st.write("#### BERTopic Dengan Topic Reduction")
-                #topic_model_after = BERTopic.load("model/model_bertopic_hmns_reduce_topic_auto_final")
-                topic_model_after = BERTopic.load("vidric/bertopic_dcd_auto_final")
+                topic_model_after = BERTopic.load("vidric/bertopic_after_tuning")
 
                 # Visualize Topics
                 fig = topic_model_after.visualize_topics()
