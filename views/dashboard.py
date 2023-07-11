@@ -151,3 +151,21 @@ class Dashboard:
                 st.dataframe(df, width=1000, hide_index = True)
           
             st.markdown("---")
+            
+        with st.container():
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.write("#### List Product")
+
+                df = db.query('SELECT * from produk')
+                st.dataframe(df, width=1000, hide_index = True)
+                
+            
+            with col2:
+                st.write("#### List Topik")
+
+                df = db.query("SELECT nama from cluster")
+                st.dataframe(df, width=1000, hide_index = True)
+          
+            st.markdown("---")
