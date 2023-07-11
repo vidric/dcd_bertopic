@@ -77,7 +77,24 @@ class ModelBertopic:
             st.write("## Langkah 3 : Model BERTopic")
         
             code3 = """
-            topic_model = BERTopic(language="id", embedding_model="distiluse-base-multilingual-cased", calculate_probabilities=True)
+            topic_model = BERTopic(language="indonesian",calculate_probabilities=True)
+            """
+            st.code(code3, language="python")
+            st.info('Model ini menghasilkan sekitar 280 topik. Dan topik- topik tersebut tidak tercluster dengan baik.')
+        
+        with st.container():
+            st.write("## Langkah 4 : Topic Reduction")
+            st.info('Kita melakukan Topic Reduction dengan code sebagai berikut :')
+            code4 = """
+            # Initiate UMAP
+            umap_model = UMAP(n_neighbors=15, 
+                  n_components=5, 
+                  min_dist=0.0, 
+                  metric='cosine', 
+                  random_state=109)
+                  
+            topic_model = BERTopic(umap_model=umap_model, language="indonesian", calculate_probabilities=True, nr_topics="auto")
+
             topics, probs = topic_model.fit_transform(reviews_fit)
             # simpan model
             topic_model.save("model_bertopic_hmns_reduce_topic_auto_final")
@@ -106,15 +123,6 @@ class ModelBertopic:
             
             for row in doc_topic_tuples:
                 csvwriter.writerow([row[0], row[1], ','.join(map(str, row[2]))])
-            """
-            st.code(code3, language="python")
-            st.info('Model ini menghasilkan sekitar 280 topik. Dan topik- topik tersebut tidak tercluster dengan baik.')
-        
-        with st.container():
-            st.write("## Langkah 4 : Topic Reduction")
-            st.info('Kita melakukan Topic Reduction dengan code sebagai berikut :')
-            code4 = """
-            topic_model = BERTopic(language="id", embedding_model="distiluse-base-multilingual-cased", calculate_probabilities=True, nr_topics="auto")
             """
             st.code(code4, language="python")
             st.info('Menghasilkan 38 topik. Dan terlihat topik- topik tersebut tercluster dengan baik.')
