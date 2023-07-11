@@ -151,3 +151,8 @@ class ModelBertopic:
                 st.plotly_chart(fig)
           
             st.markdown("---")
+            
+        with st.container():
+            st.write("## Langkah 5 : Clustering")
+        
+            st.info('Kita melakukan clustering atas 67 model yang dihasilkan, ke dalam 15 cluster. Yakni Kualitas, Kemasan, Admin, Kebanggaan, Respon Pasangan, Repeat Order, dan seterusnya. Proses ini dilakukan secara manual.')
