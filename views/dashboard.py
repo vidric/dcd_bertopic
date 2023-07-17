@@ -160,7 +160,7 @@ class Dashboard:
 
                 df = db.query('SELECT * from produk')
                 df['nama'] = df.apply(lambda x: f'<a href="https://bertopic.streamlit.app/product/{x.id}">{x.nama}</a>', axis=1)
-                df = df.drop(columns=['id'])
+                #df = df.drop(columns=['id'])
                 #df.set_index('nama', inplace=True)  # Ubah kolom 'nama' menjadi indeks
                 st.dataframe(df, width=1000, hide_index=True)
 
