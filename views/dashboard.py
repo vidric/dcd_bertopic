@@ -160,7 +160,8 @@ class Dashboard:
 
                 df = db.query('SELECT * from produk')
                 df['nama'] = df.apply(lambda x: f'<a href="https://bertopic.streamlit.app/product/{x.id}">{x.nama}</a>', axis=1)
-                st.dataframe(df, width=1000, hide_index = True)
+                st.write(df.to_html(escape=False), unsafe_allow_html=True)
+                #st.dataframe(df, width=1000, hide_index = True)
                 
             
             with col2:
