@@ -159,7 +159,7 @@ class Dashboard:
                 st.write("#### List Product")
 
                 df = db.query('SELECT * from produk')
-                df['nama'] = df['nama'].apply(lambda x: f'<a href="https://bertopic.streamlit.app/product/{x}">{x}</a>')
+                df['nama'] = df.apply(lambda x: f'<a href="https://bertopic.streamlit.app/product/{x.id}">{x.nama}</a>', axis=1)
                 st.dataframe(df, width=1000, hide_index = True)
                 
             
