@@ -11,7 +11,7 @@ class HasilModel:
 
         with st.container():
             db = Database()
-            st.markdown("<h1 style='text-align: center; color: black; font-weight: bold;'>Topic Modelling Customer Review Parfum HMNS Menggunakan BERTopic</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; color: black; font-weight: bold;'>Hasil Model BERTopic</h1>", unsafe_allow_html=True)
 
             df = db.query('SELECT * FROM v_cluster_rating ORDER BY jumlah_total_rating DESC')
             df.set_index('nama_cluster', inplace=True)
