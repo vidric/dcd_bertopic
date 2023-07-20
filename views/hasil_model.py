@@ -18,6 +18,7 @@ class HasilModel:
 
             # Buat stacked bar plot
             kolom_dipilih = ['jumlah_rating_1', 'jumlah_rating_2', 'jumlah_rating_3', 'jumlah_rating_4', 'jumlah_rating_5']
+            df_sorted = df.sort_values(by='jumlah_total_rating', ascending=False)
             ax = df[kolom_dipilih].plot(kind='bar', stacked=True, figsize=(10, 7))
             
             plt.title("Jumlah Rating untuk setiap Cluster")
