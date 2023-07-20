@@ -24,6 +24,7 @@ class HasilModel:
             plt.title("Jumlah Rating untuk setiap Cluster")
             plt.xlabel("Nama Cluster")
             plt.ylabel("Jumlah Rating")
+            plt.yscale('log')
             
             # Tampilkan plot di Streamlit
             st.pyplot(plt)
