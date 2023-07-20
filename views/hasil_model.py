@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import streamlit as st
 from bertopic import BERTopic
 from conn import Database
