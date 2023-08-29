@@ -49,7 +49,7 @@ class HasilModel:
                         WHERE LENGTH(a.review_cleansing) > 10 
                         AND c.cluster IS NOT NULL 
                         AND c.cluster IN ({selected_topics_str}) 
-                        AND b.urutan IN ('2', '3', '4');
+                        AND b.urutan IN ('4');
                         """
 
                 df = db.query(query2)
