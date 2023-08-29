@@ -31,7 +31,7 @@ class HasilModel:
             st.markdown("---")
             
         with st.form(key='my_form'):
-            default_option = ["bintang 1", "bintang 2", "bintang 3", "bintang 4", "bintang 5"]
-            selected_ratings = st.multiselect("Pilih Rating Bintang", ["bintang 1", "bintang 2", "bintang 3", "bintang 4", "bintang 5"], default=default_option)
+            default_option = ["kemasan", "kebanggaan", "hadiah", "edisi hmns", "pengiriman", "respon pasangan", "admin", "starterpack", "repeat order", "bonus", "daya tahan", "eos", "kartu ucapan", "tester"]
+            selected_ratings = st.multiselect("Pilih Topik", ["kemasan", "kebanggaan", "hadiah", "edisi hmns", "pengiriman", "respon pasangan", "admin", "starterpack", "repeat order", "bonus", "daya tahan", "eos", "kartu ucapan", "tester"], default=default_option)
             
             submit_button = st.form_submit_button(label='Submit')
