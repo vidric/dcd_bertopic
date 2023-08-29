@@ -32,6 +32,23 @@ class HasilModel:
             
         with st.form(key='my_form'):
             default_option = ["kemasan", "kebanggaan", "hadiah", "edisi hmns", "pengiriman", "respon pasangan", "admin", "starterpack", "repeat order", "bonus", "daya tahan", "eos", "kartu ucapan", "tester"]
-            selected_ratings = st.multiselect("Pilih Topik", ["kemasan", "kebanggaan", "hadiah", "edisi hmns", "pengiriman", "respon pasangan", "admin", "starterpack", "repeat order", "bonus", "daya tahan", "eos", "kartu ucapan", "tester"], default=default_option)
+            selected_topics = st.multiselect("Pilih Topik", ["kemasan", "kebanggaan", "hadiah", "edisi hmns", "pengiriman", "respon pasangan", "admin", "starterpack", "repeat order", "bonus", "daya tahan", "eos", "kartu ucapan", "tester"], default=default_option)
             
             submit_button = st.form_submit_button(label='Submit')
+            st.markdown("---")
+            
+        with st.container():
+            if submit_button:
+                st.write("#### Daftar Review")
+                query2 = """
+                        SELECT a.review_asli, a.review_cleansing, c.cluster, b.urutan 
+                        FROM reviews a 
+                        LEFT JOIN review_topic b ON a.id = b.review_id 
+                        LEFT JOIN topics c ON c.id = b.topic_id 
+                        WHERE LENGTH(a.review_cleansing) > 10 
+                        AND c.cluster IS NOT NULL 
+                        AND c.cluster IN ({selected_topics}) 
+                        AND b.urutan IN ('1','2');
+                        """
+                df = db.query(query2)
+                st.dataframe(df, width=3000, hide_index = True)
