@@ -13,7 +13,7 @@ class HasilModel:
             db = Database()
             st.markdown("<h1 style='text-align: center; color: black; font-weight: bold;'>Hasil Model BERTopic</h1>", unsafe_allow_html=True)
 
-            df = db.query('SELECT * FROM v_cluster_rating ORDER BY jumlah_total_rating DESC')
+            df = db.query('SELECT * FROM v_cluster_rating WHERE jumlah_rating_5 < 30000 ORDER BY jumlah_total_rating DESC')
             df.set_index('nama_cluster', inplace=True)
 
             # Buat stacked bar plot
