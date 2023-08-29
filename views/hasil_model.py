@@ -42,14 +42,14 @@ class HasilModel:
                 selected_topics_str = ', '.join([f"'{topik}'" for topik in selected_topics])
                 st.write("#### Daftar Review")
                 query2 = f"""
-                        SELECT a.review_asli, a.review_cleansing, c.cluster, b.urutan 
+                        SELECT a.review_asli, a.review_cleansing, c.cluster, a.rating 
                         FROM reviews a 
                         LEFT JOIN review_topic b ON a.id = b.review_id 
                         LEFT JOIN topics c ON c.id = b.topic_id 
                         WHERE LENGTH(a.review_cleansing) > 10 
                         AND c.cluster IS NOT NULL 
                         AND c.cluster IN ({selected_topics_str}) 
-                        AND b.urutan IN ('1','2');
+                        AND b.urutan IN ('1');
                         """
 
                 df = db.query(query2)
