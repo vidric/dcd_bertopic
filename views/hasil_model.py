@@ -40,12 +40,13 @@ class HasilModel:
         with st.container():
             if submit_button:
                 st.write("#### Daftar Review")
+           
                 query2 = f"""
-                        SELECT b.review_asli, b.review_cleansing, a.cluster, b.rating 
-                        FROM result a 
-                        LEFT JOIN reviews b ON b.id = a.review_id 
-                        WHERE a.cluster IN ({selected_topics});
-                        """
+                SELECT b.review_asli, b.review_cleansing, a.cluster, b.rating 
+                FROM result a 
+                LEFT JOIN reviews b ON b.id = a.review_id 
+                WHERE a.cluster = '{selected_topic}';
+                """
 
                 df = db.query(query2)
                 st.dataframe(df, width=3000, hide_index = True)
