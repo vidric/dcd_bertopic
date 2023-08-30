@@ -39,13 +39,12 @@ class HasilModel:
             
         with st.container():
             if submit_button:
-                selected_topics_str = ', '.join([f"'{topik}'" for topik in selected_topics])
                 st.write("#### Daftar Review")
                 query2 = f"""
                         SELECT b.review_asli, b.review_cleansing, a.cluster, b.rating 
                         FROM result a 
                         LEFT JOIN reviews b ON b.id = a.review_id 
-                        WHERE a.cluster IN ({selected_topics});
+                        WHERE a.cluster IN ('kemasan');
                         """
 
                 df = db.query(query2)
