@@ -32,7 +32,7 @@ class HasilModel:
             
         with st.form(key='my_form'):
             # default_option = ["kemasan", "kebanggaan", "hadiah", "edisi hmns", "pengiriman", "respon pasangan", "admin", "starterpack", "repeat order", "bonus", "daya tahan", "eos", "kartu ucapan", "tester"]
-            selected_topic = st.selectbox("Pilih Topik", ["kemasan", "kebanggaan", "daya tahan", "repeat order", "respon pasangan"])
+            selected_topics = st.selectbox("Pilih Topik", ["kemasan", "kebanggaan", "daya tahan", "repeat order", "respon pasangan"])
         
             submit_button = st.form_submit_button(label='Submit')
             st.markdown("---")
@@ -45,7 +45,7 @@ class HasilModel:
                 SELECT b.review_asli, b.review_cleansing, a.cluster, b.rating 
                 FROM result a 
                 LEFT JOIN reviews b ON b.id = a.review_id 
-                WHERE a.cluster = '{selected_topic}';
+                WHERE a.cluster = '{selected_topics}';
                 """
 
                 df = db.query(query2)
