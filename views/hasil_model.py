@@ -21,9 +21,9 @@ class HasilModel:
             df_sorted = df.sort_values(by='jumlah_total_rating', ascending=False)
             ax = df[kolom_dipilih].plot(kind='bar', stacked=True, figsize=(10, 7))
             
-            plt.title("Jumlah Rating untuk setiap Topik")
+            plt.title("Jumlah Review untuk setiap Topik")
             plt.xlabel("Nama Topik")
-            plt.ylabel("Jumlah Rating")
+            plt.ylabel("Jumlah Review")
             
             # Tampilkan plot di Streamlit
             st.pyplot(plt)
