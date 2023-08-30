@@ -44,7 +44,7 @@ class HasilModel:
                         SELECT b.review_asli, b.review_cleansing, a.cluster, b.rating 
                         FROM result a 
                         LEFT JOIN reviews b ON b.id = a.review_id 
-                        WHERE a.cluster = {selected_topics};
+                        WHERE a.cluster = '{selected_topics}';
                         """
 
                 df = db.query(query2)
