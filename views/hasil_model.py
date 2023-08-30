@@ -32,7 +32,7 @@ class HasilModel:
             
         with st.form(key='my_form'):
             # default_option = ["kemasan", "kebanggaan", "hadiah", "edisi hmns", "pengiriman", "respon pasangan", "admin", "starterpack", "repeat order", "bonus", "daya tahan", "eos", "kartu ucapan", "tester"]
-            selected_topics = st.selectbox("Pilih Topik", ["kemasan", "kebanggaan", "daya tahan", "repeat order", "respon pasangan"])
+            selected_topic = st.selectbox("Pilih Topik", ["kemasan", "kebanggaan", "daya tahan", "repeat order", "respon pasangan"])
         
             submit_button = st.form_submit_button(label='Submit')
             st.markdown("---")
